@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  hotel-booking-service:
+    build: .
+    restart: unless-stopped
+    ports:
+      - ${HTTP_PORT}:${HTTP_PORT}
+    networks:
+      - default
+    env_file:
+      - .env
+
+networks:
+  default:
